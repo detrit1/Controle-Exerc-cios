@@ -6,6 +6,7 @@ class Exercicio {
   int series;
   int repeticoes;
   double carga;
+  String? observacoes;
 
   Exercicio({
     this.id,
@@ -15,6 +16,7 @@ class Exercicio {
     required this.series,
     required this.repeticoes,
     required this.carga,
+    this.observacoes
   });
 
   Map<String, dynamic> toMap() {
@@ -25,6 +27,7 @@ class Exercicio {
       'series': series,
       'repeticoes': repeticoes,
       'carga': carga,
+      'observacoes': observacoes
     };
   }
 
@@ -36,6 +39,7 @@ class Exercicio {
       'series': series,
       'repeticoes': repeticoes,
       'carga': carga,
+      'observacoes': observacoes
     };
   }
 
@@ -48,6 +52,7 @@ class Exercicio {
       series: map['series'],
       repeticoes: map['repeticoes'],
       carga: map['carga'],
+      observacoes: map['observacoes']
     );
   }
 }

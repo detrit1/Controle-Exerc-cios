@@ -14,7 +14,8 @@ class DB {
             tipoEquipamento TEXT,
             series INTEGER,
             repeticoes INTEGER,
-            carga REAL
+            carga REAL,
+            observacoes TEXT
           )
         ''');
       },

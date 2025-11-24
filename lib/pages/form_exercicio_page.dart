@@ -18,6 +18,8 @@ class _FormExercicioPageState extends State<FormExercicioPage> {
   final series = TextEditingController();
   final repeticoes = TextEditingController();
   final carga = TextEditingController();
+  final observacoes = TextEditingController();
+
 
   String grupoMuscular = "Peito";
   String equipamento = "Halteres";
@@ -51,6 +53,7 @@ class _FormExercicioPageState extends State<FormExercicioPage> {
       carga.text = widget.exercicio!.carga.toString();
       grupoMuscular = widget.exercicio!.grupoMuscular;
       equipamento = widget.exercicio!.tipoEquipamento;
+      observacoes.text = widget.exercicio!.observacoes ?? "";
     }
   }
 
@@ -64,6 +67,7 @@ class _FormExercicioPageState extends State<FormExercicioPage> {
       series: int.parse(series.text.trim()),
       repeticoes: int.parse(repeticoes.text.trim()),
       carga: double.parse(carga.text.trim()),
+      observacoes: observacoes.text
     );
 
 
@@ -168,6 +172,12 @@ class _FormExercicioPageState extends State<FormExercicioPage> {
                 ],
               ),
 
+              const SizedBox(height: 10,),
+              
+              TextFormField(
+                controller: observacoes,
+                decoration: const InputDecoration(labelText: "Observações"),
+              ),
 
               const SizedBox(height: 20),
               ElevatedButton(
