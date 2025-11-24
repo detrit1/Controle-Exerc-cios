@@ -100,7 +100,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 trailing: IconButton(
-                  icon: const Icon(Icons.delete, color: Colors.redAccent),
+                  icon: const Icon(Icons.delete, color: Colors.amber),
                   onPressed: () => deletar(e.id!),
                 ),
                 onTap: () async {
