@@ -13,8 +13,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Recordes de Treino',
-
-      // 🔥 AGORA A TELA INICIAL É CHAMADA DIRETAMENTE
       home: const IntroPage(),
 
       theme: ThemeData(
