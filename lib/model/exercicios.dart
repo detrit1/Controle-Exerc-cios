@@ -18,7 +18,6 @@ class Exercicio {
   });
 
   Map<String, dynamic> toMap() {
-    // Usado para INSERT — sem id!
     return {
       'nome': nome,
       'grupoMuscular': grupoMuscular,
@@ -30,7 +29,6 @@ class Exercicio {
   }
 
   Map<String, dynamic> toMapUpdate() {
-    // Usado para UPDATE — também sem id no SET
     return {
       'nome': nome,
       'grupoMuscular': grupoMuscular,

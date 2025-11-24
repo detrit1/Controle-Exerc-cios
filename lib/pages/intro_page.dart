@@ -37,8 +37,6 @@ class IntroPage extends StatelessWidget {
                 ),
               ],
             ),
-
-            // TODO: Adicionar imagem ou Lottie aqui
             SizedBox(
               height: 200,
               child: Center(

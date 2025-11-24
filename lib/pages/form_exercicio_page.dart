@@ -68,10 +68,9 @@ class _FormExercicioPageState extends State<FormExercicioPage> {
 
 
     if (widget.exercicio == null) {
-      // INSERT
+
       await DB.insert('exercicios', novo.toMap());
     } else {
-      // UPDATE
       await DB.update(
         'exercicios',
         widget.exercicio!.id!,
