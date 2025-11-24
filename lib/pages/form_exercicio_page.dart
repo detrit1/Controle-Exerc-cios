@@ -129,7 +129,13 @@ class _FormExercicioPageState extends State<FormExercicioPage> {
                       controller: series,
                       keyboardType: TextInputType.number,
                       decoration: const InputDecoration(labelText: "Séries"),
+                      validator: (v) {
+                        if (v == null || v.isEmpty) return "Informe o número de séries";
+                        if (int.tryParse(v) == null) return "Digite um número válido";
+                        return null;
+                      },
                     ),
+
                   ),
                   const SizedBox(width: 10),
                   Expanded(
@@ -137,7 +143,13 @@ class _FormExercicioPageState extends State<FormExercicioPage> {
                       controller: repeticoes,
                       keyboardType: TextInputType.number,
                       decoration: const InputDecoration(labelText: "Repetições"),
+                      validator: (v) {
+                        if (v == null || v.isEmpty) return "Informe as repetições";
+                        if (int.tryParse(v) == null) return "Digite um número válido";
+                        return null;
+                      },
                     ),
+
                   ),
                   const SizedBox(width: 10),
                   Expanded(
@@ -145,7 +157,13 @@ class _FormExercicioPageState extends State<FormExercicioPage> {
                       controller: carga,
                       keyboardType: TextInputType.number,
                       decoration: const InputDecoration(labelText: "Carga (kg)"),
+                      validator: (v) {
+                        if (v == null || v.isEmpty) return "Informe a carga";
+                        if (double.tryParse(v) == null) return "Use apenas números (ex: 10.5)";
+                        return null;
+                      },
                     ),
+
                   ),
                 ],
               ),

@@ -93,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 subtitle: Text(
-                  "${e.grupoMuscular} • ${e.series} x ${e.repeticoes}",
+                  "${e.grupoMuscular} • ${e.series} x ${e.repeticoes} - ${e.carga} kg",
                   style: const TextStyle(
                     color: Colors.white70,
                     fontSize: 14,
