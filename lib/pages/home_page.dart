@@ -193,7 +193,6 @@ class _HomePageState extends State<HomePage> {
                             ),
                             const SizedBox(width: 14),
 
-                            // COLUNA DE INFORMAÇÕES
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,

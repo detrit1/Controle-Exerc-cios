@@ -134,7 +134,7 @@ class _FormExercicioPageState extends State<FormExercicioPage> {
                       keyboardType: TextInputType.number,
                       decoration: const InputDecoration(
                         labelText: "Séries",
-                        errorMaxLines: 3, // ou mais, se quiser
+                        errorMaxLines: 3,
                       ),
                       validator: (v) {
                         if (v == null || v.isEmpty) return "Informe o número de séries";
@@ -153,7 +153,7 @@ class _FormExercicioPageState extends State<FormExercicioPage> {
                       keyboardType: TextInputType.number,
                       decoration: const InputDecoration(
                         labelText: "Repetições",
-                        errorMaxLines: 3, // ou mais, se quiser
+                        errorMaxLines: 3,
                       ),
                       validator: (v) {
                         if (v == null || v.isEmpty) return "Informe as repetições";
@@ -187,7 +187,7 @@ class _FormExercicioPageState extends State<FormExercicioPage> {
                       keyboardType: TextInputType.number,
                       decoration: const InputDecoration(
                         labelText: "Carga (kg)",
-                        errorMaxLines: 3, // ou mais, se quiser
+                        errorMaxLines: 3,
                       ),
 
                       validator: (v) {
@@ -231,8 +231,8 @@ class _FormExercicioPageState extends State<FormExercicioPage> {
                   border: OutlineInputBorder(),
                 ),
                 keyboardType: TextInputType.multiline,
-                minLines: 3,      // altura inicial confortável
-                maxLines: null,   // permite crescer infinitamente
+                minLines: 3, 
+                maxLines: null, 
               ),
 
               const SizedBox(height: 20),
