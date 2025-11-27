@@ -132,10 +132,15 @@ class _FormExercicioPageState extends State<FormExercicioPage> {
                     child: TextFormField(
                       controller: series,
                       keyboardType: TextInputType.number,
-                      decoration: const InputDecoration(labelText: "Séries"),
+                      decoration: const InputDecoration(
+                        labelText: "Séries",
+                        errorMaxLines: 3, // ou mais, se quiser
+                      ),
                       validator: (v) {
                         if (v == null || v.isEmpty) return "Informe o número de séries";
-                        if (int.tryParse(v) == null) return "Digite um número válido";
+                        final valor = double.tryParse(v);
+                        if (valor == null) return "Use apenas números (ex: 10.5)";
+                        if (valor > 50) return "Insira uma carga válida";
                         return null;
                       },
                     ),
@@ -146,10 +151,30 @@ class _FormExercicioPageState extends State<FormExercicioPage> {
                     child: TextFormField(
                       controller: repeticoes,
                       keyboardType: TextInputType.number,
-                      decoration: const InputDecoration(labelText: "Repetições"),
+                      decoration: const InputDecoration(
+                        labelText: "Repetições",
+                        errorMaxLines: 3, // ou mais, se quiser
+                      ),
                       validator: (v) {
                         if (v == null || v.isEmpty) return "Informe as repetições";
-                        if (int.tryParse(v) == null) return "Digite um número válido";
+                        final valor = double.tryParse(v);
+                        if (valor == null) return "Use apenas números (ex: 10.5)";
+                        switch (grupoMuscular){
+                          case "Peito":
+                          case "Costas":
+                          case "Bíceps":
+                          case "Tríceps":
+                          case "Ombros":
+                          if(valor > 50){
+                            return "Insira uma carga válida";
+                          }
+                          case "Quadríceps":
+                          case "Glúteos":
+                          case "Posterior":
+                          if(valor > 200){
+                            return "Insira uma carga válida";
+                          }
+                        };
                         return null;
                       },
                     ),
@@ -160,10 +185,34 @@ class _FormExercicioPageState extends State<FormExercicioPage> {
                     child: TextFormField(
                       controller: carga,
                       keyboardType: TextInputType.number,
-                      decoration: const InputDecoration(labelText: "Carga (kg)"),
+                      decoration: const InputDecoration(
+                        labelText: "Carga (kg)",
+                        errorMaxLines: 3, // ou mais, se quiser
+                      ),
+
                       validator: (v) {
                         if (v == null || v.isEmpty) return "Informe a carga";
-                        if (double.tryParse(v) == null) return "Use apenas números (ex: 10.5)";
+                        final valor = double.tryParse(v);
+                        if (valor == null) return "Use apenas números (ex: 10.5)";
+                        switch (grupoMuscular){
+                          case "Peito":
+                          case "Costas":
+                          if(valor > 300){
+                            return "Insira uma carga válida";
+                          }
+                          case "Bíceps":
+                          case "Tríceps":
+                          case "Ombros":
+                          if(valor > 200){
+                            return "Insira uma carga válida";
+                          }
+                          case "Quadríceps":
+                          case "Glúteos":
+                          case "Posterior":
+                          if(valor > 2000){
+                            return "Insira uma carga válida";
+                          }
+                        };
                         return null;
                       },
                     ),
@@ -176,14 +225,34 @@ class _FormExercicioPageState extends State<FormExercicioPage> {
               
               TextFormField(
                 controller: observacoes,
-                decoration: const InputDecoration(labelText: "Observações"),
+                decoration: const InputDecoration(
+                  labelText: "Observações",
+                  alignLabelWithHint: true,
+                  border: OutlineInputBorder(),
+                ),
+                keyboardType: TextInputType.multiline,
+                minLines: 3,      // altura inicial confortável
+                maxLines: null,   // permite crescer infinitamente
               ),
 
               const SizedBox(height: 20),
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.amber,
+                  foregroundColor: Colors.black,
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  textStyle: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
                 onPressed: salvar,
                 child: const Text("Salvar"),
               ),
+
             ],
           ),
         ),
